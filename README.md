@@ -21,4 +21,4 @@ The Active Directory project is aimed to create a Home-Lab to explore how a doma
 
 ## Steps
 
-### Part 1: Create a diagram (to map out how to build lab logically): 
+### Part 1: Create a diagram (to map out how to build lab logically): [Diagram](https://github.com/kennedyshearer/Active-Directory-Project/blob/main/ADP-diagram.drawio.png)
