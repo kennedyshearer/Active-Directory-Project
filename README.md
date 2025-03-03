@@ -183,5 +183,8 @@ Follow the official Splunk Universal Forwarder installation guide:
 
 6. **Restart Splunk Universal Forwarder service**
 
+7. **Create Index in Splunk**
 
-### **4️⃣ Create Index in Splunk**
+   <p align="center"> <img src="https://i.gyazo.com/05bf4795b4871b4860479f6f72be32df.gif"></p>
+   <br>
+
