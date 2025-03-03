@@ -35,12 +35,42 @@ By implementing this SOAR workflow, you can **automate security operations**, re
 - **HDD:** 100GB+
 - **OS:** Ubuntu 24.04 LTS
 
-### **1️⃣ Install Splunk Enterprise**  
-A shared folder was setup to retrieve the splunk deb. file from the host computer using these steps: 
+### **1️⃣ Setup Static IP Address**
+1. **Open up text editor to the file 50-cloud-init.yaml**
+   ```bash
+   sudo nano /etc/netplan/50-cloud-init.yaml
+   ```
+   
+2. **Modify with new IP address, DNS, and default route(gateway)**
+   ```bash
+   network:
+       ethernets:
+           ens33:
+               dhcp4: no
+               addresses: [192.168.10.10/24]
+               nameservers:
+                   addresses: [8.8.8.8]
+               routes:
+                   - to: default
+                     via: 192.168.10.2
+       version: 2
+   ```
+
+3. **Apply new Netplan configuration**
+   ```bash
+   sudo netplan apply
+   ```
+
+4. **Verify network:**
+   <p align="center"> <img src="https://i.gyazo.com/eeaae200b4a51e9cf591a50ea17acf81.jpg"></p>
+   <br>
+
+
+### **2️⃣ Install Splunk Enterprise**  
+A shared folder was setup to retrieve the Splunk deb. file from the host computer using these steps: 
 
 Follow the official Splunk Enterprise installation guide:  
 🔗 [Splunk Enterprise Installation Guide](https://docs.splunk.com/Documentation/Splunk/9.4.1/SearchTutorial/InstallSplunk)  
-
 
 1. **Update and Upgrade:**
    ```bash
@@ -83,4 +113,25 @@ Follow the official Splunk Enterprise installation guide:
 8. **Access Splunk Dashboard:**
    - Open your browser and go to: `https://192.168.10.10:8000`
 
-![Splunk](https://github.com/user-attachments/assets/1ab85349-4e1f-4916-a363-ed0a1c8030c6)
+   <p align="center"> <img src="https://i.gyazo.com/30323d51eb8a00ff0594e3cfd3513962.png"></p>
+   <br>
+
+
+### VM-2 for Target-PC 
+
+**Specifications**
+
+- **RAM:** 4GB+
+- **HDD:** 50GB+
+- **OS:** Windows 10 (64-bit)
+
+### **1️⃣ Setup Static IP Address**
+1. **Navigate to IPv4 properties and modify general settings**
+   
+   ![targetPC](https://i.gyazo.com/b7bfc9fcee64c6bb66c8a1d895cbfccb.png)
+
+
+### **2️⃣ Install Splunk Universal Forwarder**
+
+
+### **2️⃣ Install Sysmon**
