@@ -111,7 +111,7 @@ Follow the official Splunk Enterprise installation guide:
    ```
 
 8. **Access Splunk Dashboard:**
-   - Open your browser and go to: `https://192.168.10.10:8000`
+   - Open your browser on Target-PC and go to: `https://192.168.10.10:8000`
 
    <p align="center"> <img src="https://i.gyazo.com/30323d51eb8a00ff0594e3cfd3513962.png"></p>
    <br>
@@ -132,6 +132,12 @@ Follow the official Splunk Enterprise installation guide:
 
 
 ### **2️⃣ Install Splunk Universal Forwarder**
+Follow the official Splunk Universal Forwarder installation guide:  
+🔗 [Splunk Universal Forwarder Installation Guide](https://docs.splunk.com/Documentation/Forwarder/9.4.0/Forwarder/InstallaWindowsuniversalforwarderfromaninstaller)  
+
+1. **Run Splunk Universal Forwarder installer**
+   
+   ![SplunkUF](https://i.gyazo.com/2b72deed3c8527c0b373dd4e325cc0e0.gif)
 
 
 ### **2️⃣ Install Sysmon**
