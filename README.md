@@ -111,7 +111,7 @@ Follow the official Splunk Enterprise installation guide:
    ```
 
 8. **Access Splunk Dashboard:**
-   - Open your browser on Target-PC and go to: `https://192.168.10.10:8000`
+   - Open your browser and go to: `https://192.168.10.10:8000`
 
    <p align="center"> <img src="https://i.gyazo.com/30323d51eb8a00ff0594e3cfd3513962.png"></p>
    <br>
@@ -131,7 +131,19 @@ Follow the official Splunk Enterprise installation guide:
    ![targetPC](https://i.gyazo.com/b7bfc9fcee64c6bb66c8a1d895cbfccb.png)
 
 
-### **2️⃣ Install Splunk Universal Forwarder**
+### **2️⃣ Install Sysmon**
+Download the Sysmon configuration file (sysmonconfig.xml) from github:  
+🔗 [Sysmon Configuration File](https://github.com/olafhartong/sysmon-modular/blob/master/sysmonconfig.xml) 
+
+1. **Extract Sysmon files**
+2. **Open Powershell as administator**
+3. **Change directory to the path of extracted Sysmon files**
+4. **Run ``Sysmon64.exe -i`` on sysmonconfig.xml file**
+   
+   ![Sysmon64](https://i.gyazo.com/45163ab1be22686e8bb86688c5e457a9.png)
+
+
+### **3️⃣ Install Splunk Universal Forwarder**
 Follow the official Splunk Universal Forwarder installation guide:  
 🔗 [Splunk Universal Forwarder Installation Guide](https://docs.splunk.com/Documentation/Forwarder/9.4.0/Forwarder/InstallaWindowsuniversalforwarderfromaninstaller)  
 
@@ -139,5 +151,37 @@ Follow the official Splunk Universal Forwarder installation guide:
    
    ![SplunkUF](https://i.gyazo.com/2b72deed3c8527c0b373dd4e325cc0e0.gif)
 
+2. **Create inputs.conf file for setting up file monitoring input**
+   ```bash
+   [WinEventLog://Application]
+   index = endpoint
+   disabled = false
 
-### **2️⃣ Install Sysmon**
+   [WinEventLog://Security]
+   index = endpoint
+   disabled = false
+
+   [WinEventLog://System]
+   index = endpoint
+   disabled = false
+
+   [WinEventLog://Microsoft-Windows-Sysmon/Operational]
+   index = endpoint
+   disabled = false
+   renderXml = true
+   source = XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
+   ```
+   
+3. **Save inputs.conf file under local directory**
+   ```bash
+   C:\Program Files\SplunkUniversalForwarder\etc\system\local
+   ```
+   
+4. **Change Splunk "Log on as" setting to Local System account**
+
+   ![WinServices](https://i.gyazo.com/42c164a68e91b71fe3ad062f5685cd18.png)
+
+6. **Restart Splunk Universal Forwarder service**
+
+
+### **4️⃣ Create Index in Splunk**
