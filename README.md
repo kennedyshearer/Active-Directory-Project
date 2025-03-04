@@ -129,7 +129,7 @@ Follow the official Splunk Enterprise installation guide:
 1. **Navigate to IPv4 properties and modify general settings:**
    
    ![ADDC01](https://i.gyazo.com/3c54f00369d4df4a24591c2db3ae7d45.png)
-
+   
 
 ### **2️⃣ Install Sysmon**
 Download the Sysmon configuration file (sysmonconfig.xml) from github:  
@@ -141,7 +141,7 @@ Download the Sysmon configuration file (sysmonconfig.xml) from github:
 4. **Run ``Sysmon64.exe -i`` on sysmonconfig.xml file:**
    
    ![Sysmon64](https://i.gyazo.com/45163ab1be22686e8bb86688c5e457a9.png)
-
+   
 
 ### **3️⃣ Install & Configure Splunk Universal Forwarder**
 Follow the official Splunk Universal Forwarder installation guide:  
@@ -250,3 +250,68 @@ Follow steps 1-5 for [Splunk Universal Forwarder installation](#3️⃣-install-
 
    <p align="center"> <img src="https://i.gyazo.com/8998c20703e5398478ec090a399ba7a2.gif"></p>
    <br>
+
+4. **Test logging into an account created on the AD server:**
+
+   <p align="center"> <img src="https://i.gyazo.com/b97eded2a46bb27cc542b47fb5f5c58c.gif"></p>
+   <br>
+
+
+### **5️⃣ Enable Remote Desktop Protocol (RDP)**
+1. **Navigate to PC properties**
+2. **Select Advanced system settings**
+3. **Under the Remote tab, select Allow remote connections to this computer**
+4. **Add two users created in Active Directory Domain Controller**
+
+   <p align="center"> <img src="https://i.gyazo.com/59f7c309dd4705512775429fdafc7572.gif"></p>
+   <br>
+
+
+### VM-4 for Attack Machine
+
+**Specifications**
+
+- **RAM:** 4GB+
+- **HDD:** 50GB+
+- **OS:** Kali Linux 2024.4
+
+### **1️⃣ Setup Static IP Address**
+1. **Navigate to Wired connection IPv4 settings and modify accordingly**
+
+   ![kali](https://i.gyazo.com/a63ac3e5400c249ebfa40a1386b528d1.png)
+
+
+### **2️⃣ Install and Setup Tools**
+1. **Update and Upgrade:**
+   ```bash
+   apt-get update && apt-get upgrade
+   ```
+
+2. **Install crowbar (brute force tool):**
+   ```bash
+   sudo apt-get install -y crowbar
+   ```
+   
+3. **Create a folder to save tools used for attack:**
+   ```bash
+   mkdir AD-project
+   ```
+   
+5. **Find, unzip, and copy rockyou.txt wordlist to AD-Project:**
+   ```bash
+   cd /usr/share/wordlists/
+   sudo gunzip rockyou.txt.gz
+   cp rockyou.txt ~/Desktop/AD_project
+   ```
+
+6. **Change to AD-project and create a smaller file with the first 20 lines of rockyou.txt:**
+   ```bash
+   cd ~/Desktop/AD_project
+   head -n 20 rockyou.txt > passwords.txt
+   ```
+
+7. **Add the `MAGIC` password to the new wordlist; passwords.txt:**
+   ```bash
+   echo "China123" >> passwords.txt
+   ```
+
