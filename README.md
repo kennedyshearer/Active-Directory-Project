@@ -228,7 +228,7 @@ Follow the official Splunk Universal Forwarder installation guide:
 
 
 ### **2️⃣ Install Sysmon**
-Follow these steps for [Sysmon installation](#install-sysmon)
+Follow these steps for [Sysmon installation](#2️⃣-install-sysmon)
 
 
 ### **3️⃣ Install Splunk Universal Forwarder**
