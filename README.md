@@ -143,7 +143,7 @@ Download the Sysmon configuration file (sysmonconfig.xml) from github:
    ![Sysmon64](https://i.gyazo.com/45163ab1be22686e8bb86688c5e457a9.png)
 
 
-### **3️⃣ Install & Configure Splunk Universal Forwarder**
+### **3️⃣ Install Splunk Universal Forwarder**
 Follow the official Splunk Universal Forwarder installation guide:  
 🔗 [Splunk Universal Forwarder Installation Guide](https://docs.splunk.com/Documentation/Forwarder/9.4.0/Forwarder/InstallaWindowsuniversalforwarderfromaninstaller)  
 
@@ -232,6 +232,6 @@ Follow these steps for [Sysmon installation](#2️⃣-install-sysmon)
 
 
 ### **3️⃣ Install Splunk Universal Forwarder**
-Follow steps 1-5 of [Splunk Universal Forwarder installation](#3️⃣-install-configure-splunk-universal-forwarder)
+Follow steps 1-5 of [Splunk Universal Forwarder installation](#3️⃣-install-splunk-universal-forwarder)
 
 
