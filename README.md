@@ -6,7 +6,7 @@ This project demonstrates setting up an Active Driectory(homelab), integrating S
 ✅ **Analyzing security logs** in Splunk.  
 ✅ **Powershell scripting** for tasks (Set-ExecutionPolicy, Invoke-AtomicTest).
 ✅ **Brute force attacks** using crowbar and hydra.  
-✅ **Simulating cyber attacks** with Atomic Red Team (ART).  
+✅ **Cyber attack simulations** with Atomic Red Team (ART).  
 ✅ **Troubleshooting network** connectivity between VM machines.  
 
 By implementing this SOAR workflow, you can **automate security operations**, reduce response time, and improve efficiency in a **SOC environment**.  
@@ -117,18 +117,18 @@ Follow the official Splunk Enterprise installation guide:
    <br>
 
 
-### VM-2 for Target-PC 
+### VM-2 for Active Directory 
 
 **Specifications**
 
 - **RAM:** 4GB+
 - **HDD:** 50GB+
-- **OS:** Windows 10 (64-bit)
+- **OS:** Windows 2022 (64-bit)
 
 ### **1️⃣ Setup Static IP Address**
-1. **Navigate to IPv4 properties and modify general settings**
+1. **Navigate to IPv4 properties and modify general settings:**
    
-   ![targetPC](https://i.gyazo.com/b7bfc9fcee64c6bb66c8a1d895cbfccb.png)
+   ![ADDC01](https://i.gyazo.com/3c54f00369d4df4a24591c2db3ae7d45.png)
 
 
 ### **2️⃣ Install Sysmon**
@@ -138,20 +138,20 @@ Download the Sysmon configuration file (sysmonconfig.xml) from github:
 1. **Extract Sysmon files**
 2. **Open Powershell as administator**
 3. **Change directory to the path of extracted Sysmon files**
-4. **Run ``Sysmon64.exe -i`` on sysmonconfig.xml file**
+4. **Run ``Sysmon64.exe -i`` on sysmonconfig.xml file:**
    
    ![Sysmon64](https://i.gyazo.com/45163ab1be22686e8bb86688c5e457a9.png)
 
 
-### **3️⃣ Install Splunk Universal Forwarder**
+### **3️⃣ Install & Configure Splunk Universal Forwarder**
 Follow the official Splunk Universal Forwarder installation guide:  
 🔗 [Splunk Universal Forwarder Installation Guide](https://docs.splunk.com/Documentation/Forwarder/9.4.0/Forwarder/InstallaWindowsuniversalforwarderfromaninstaller)  
 
-1. **Run Splunk Universal Forwarder installer**
+1. **Run Splunk Universal Forwarder installer:**
    
    ![SplunkUF](https://i.gyazo.com/2b72deed3c8527c0b373dd4e325cc0e0.gif)
 
-2. **Create inputs.conf file for setting up file monitoring input**
+2. **Create inputs.conf file for setting up file monitoring input:**
    ```bash
    [WinEventLog://Application]
    index = endpoint
@@ -172,19 +172,66 @@ Follow the official Splunk Universal Forwarder installation guide:
    source = XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
    ```
    
-3. **Save inputs.conf file under local directory**
+3. **Save inputs.conf file under local directory:**
    ```bash
    C:\Program Files\SplunkUniversalForwarder\etc\system\local
    ```
    
-4. **Change Splunk "Log on as" setting to Local System account**
+4. **Change Splunk "Log on as" setting to Local System account:**
 
    ![WinServices](https://i.gyazo.com/42c164a68e91b71fe3ad062f5685cd18.png)
 
-6. **Restart Splunk Universal Forwarder service**
+5. **Restart Splunk Universal Forwarder service**
 
-7. **Create Index in Splunk**
-
+6. **Setup Splunk to receive data from Universal Forwarder:**
+   - Create endpoint index: 
+     
    <p align="center"> <img src="https://i.gyazo.com/05bf4795b4871b4860479f6f72be32df.gif"></p>
    <br>
+
+   - Configure receiving data: 
+     
+   <p align="center"> <img src="https://i.gyazo.com/11e54bf5e1729ad19ffcbf10d70f47b0.gif"></p>
+   <br>
+
+ 
+ ### **4️⃣Create Domain Controller**
+1. **Install Active Directory Domain Services:**
+
+   <p align="center"> <img src="https://i.gyazo.com/930ceaf569b4aca5087a041f0d719dc6.gif"></p>
+   <br>
+
+2. **Promote server to a domain controller:**
+
+   <p align="center"> <img src="https://i.gyazo.com/88d67712159f2a518191f9e5d37e45d2.gif"></p>
+   <br>
+
+3. **Restart Active Directory:**
+   - Successfully installed Active Directory Domain Services and promoted server to a domain controller:
+
+   ![mydfirDC](https://i.gyazo.com/e9f73c24be35cfbd91a9d29180004a98.png)
+   <br>
+
+
+### VM-3 for Target-PC 
+
+**Specifications**
+
+- **RAM:** 4GB+
+- **HDD:** 50GB+
+- **OS:** Windows 10 (64-bit)
+
+### **1️⃣ Setup Static IP Address**
+1. **Navigate to IPv4 properties and modify general settings**
+   
+   ![targetPC](https://i.gyazo.com/b7bfc9fcee64c6bb66c8a1d895cbfccb.png)
+
+
+### **2️⃣ Install Sysmon**
+Follow these steps for [Sysmon installation](#install-sysmon-1)
+
+
+### **3️⃣ Install Splunk Universal Forwarder**
+Follow steps 1-5 of [Splunk Universal Forwarder installation](#install-&-configure-splunk-universal-forwarder)
+
 
