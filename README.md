@@ -195,7 +195,7 @@ Follow the official Splunk Universal Forwarder installation guide:
    <br>
 
  
- ### **4️⃣Create Domain Controller**
+ ### **4️⃣ Create Domain Controller**
 1. **Install Active Directory Domain Services:**
 
    <p align="center"> <img src="https://i.gyazo.com/930ceaf569b4aca5087a041f0d719dc6.gif"></p>
@@ -212,6 +212,14 @@ Follow the official Splunk Universal Forwarder installation guide:
    ![mydfirDC](https://i.gyazo.com/e9f73c24be35cfbd91a9d29180004a98.png)
    <br>
 
+
+### **5️⃣ Create Multiple Users**
+1. **Create an organizational unit (OU)**
+2. **Create users and assign passwords to each**
+   
+   <p align="center"> <img src="https://i.gyazo.com/0593b27ba6274101d70e2e70fbc5c1d4.gif"></p>
+   <br>
+   
 
 ### VM-3 for Target-PC 
 
@@ -232,6 +240,13 @@ Follow these steps for [Sysmon installation](#2️⃣-install-sysmon)
 
 
 ### **3️⃣ Install Splunk Universal Forwarder**
-Follow steps 1-5 of [Splunk Universal Forwarder installation](#3️⃣-install--configure-splunk-universal-forwarder)
+Follow steps 1-5 for [Splunk Universal Forwarder installation](#3️⃣-install--configure-splunk-universal-forwarder)
 
 
+### **4️⃣ Join Domain Controller**
+1. **Navigate to Advanced system settings under PC > properties**
+2. **Select Change**
+3. **Set domain to mydfir.local**
+
+   <p align="center"> <img src="https://i.gyazo.com/8998c20703e5398478ec090a399ba7a2.gif"></p>
+   <br>
