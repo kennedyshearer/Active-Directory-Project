@@ -4,7 +4,7 @@
 This project demonstrates setting up an Active Driectory(homelab), integrating Splunk, Kali Linux, and Atomic Red Team to explore how a domain environment works while learning how to ingest events to a SIEM and generate telemetry related to attacks in the real-world to help detect in the future.
 
 ✅ **Analyzing security logs** in Splunk.  
-✅ **Powershell scripting** for tasks (Set-ExecutionPolicy, Invoke-AtomicTest).
+✅ **Powershell scripting** for tasks (Set-ExecutionPolicy, Invoke-AtomicTest).  
 ✅ **Brute force attacks** using crowbar and hydra.  
 ✅ **Cyber attack simulations** with Atomic Red Team (ART).  
 ✅ **Troubleshooting network** connectivity between VM machines.  
