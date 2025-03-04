@@ -25,6 +25,11 @@ By implementing this SOAR workflow, you can **automate security operations**, re
 
 ---
 
+## 📈 Topology  
+<p align="center"> <img src="https://github.com/kennedyshearer/Active-Directory-Project/blob/main/ADP-diagram.drawio.png"></p>
+
+---
+
 ## 🛠️ Installation & Setup  
 
 ### VM-1 for Splunk Server 
