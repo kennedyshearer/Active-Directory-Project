@@ -319,6 +319,8 @@ Follow steps 1-5 for [Splunk Universal Forwarder installation](#3️⃣-install-
    ```bash
    echo "China123" >> passwords.txt
    ```
+   <br>
+   
 
 ### Attack Simulations & Telemetry Generation via Splunk
 
@@ -340,9 +342,13 @@ Follow steps 1-5 for [Splunk Universal Forwarder installation](#3️⃣-install-
      
    ![EventCode](https://i.gyazo.com/23009daac2026eae089c612e9491aee2.png)
 
-   - A deeper search on each EventCode revealed that 4625 are "failed login attempts and 4624 is a "succesful login attempt":
+   - A deeper search revealed that EventCode 4625 are "failed login attempts":
 
-     ![failed]()
+     ![failed](https://i.gyazo.com/ba6153af2483aadb4764e8b55fb4de20.png)
+
+   - While EventCode 4625 is a "succesful login attempt":
 
      ![success](https://i.gyazo.com/af9c6de6ec630c0f052f06377645264e.png)
+
+     
 
