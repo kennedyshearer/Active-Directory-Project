@@ -3,13 +3,14 @@
 ## 📌 Project Description  
 This project demonstrates setting up an Active Driectory(homelab), integrating Splunk, Kali Linux, and Atomic Red Team to explore how a domain environment works while learning how to ingest events to a SIEM and generate telemetry related to attacks in the real-world to help detect in the future.
 
+---
+
+## 🛡️ Skills Gained
 ✅ **Analyzing security logs** in Splunk.  
 ✅ **Powershell scripting** for tasks (Set-ExecutionPolicy, Invoke-AtomicTest).  
 ✅ **Brute force attacks** using crowbar and hydra.  
 ✅ **Simulate Atomic Tests** mapped to the MITRE ATT&CK with Atomic Red Team (ART).  
-✅ **Troubleshooting network** connectivity between VM machines.  
-
-By implementing this SOAR workflow, you can **automate security operations**, reduce response time, and improve efficiency in a **SOC environment**.  
+✅ **Troubleshooting network** connectivity between servers and workstations.  
 
 ---
 
