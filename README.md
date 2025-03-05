@@ -6,7 +6,7 @@ This project demonstrates setting up an Active Driectory(homelab), integrating S
 ✅ **Analyzing security logs** in Splunk.  
 ✅ **Powershell scripting** for tasks (Set-ExecutionPolicy, Invoke-AtomicTest).  
 ✅ **Brute force attacks** using crowbar and hydra.  
-✅ **Cyber attack simulations** with Atomic Red Team (ART).  
+✅ **Simulate Atomic Tests** mapped to the MITRE ATT&CK with Atomic Red Team (ART).  
 ✅ **Troubleshooting network** connectivity between VM machines.  
 
 By implementing this SOAR workflow, you can **automate security operations**, reduce response time, and improve efficiency in a **SOC environment**.  
@@ -248,10 +248,27 @@ Follow these steps for [Sysmon installation](#2️⃣-install-sysmon)
 Follow steps 1-5 for [Splunk Universal Forwarder installation](#3️⃣-install--configure-splunk-universal-forwarder)
 
 
-### **4️⃣ Join Domain Controller**
-1. **Navigate to Advanced system settings under PC > properties**
+### **4️⃣ Setup Atomic Red Team(ART)**
+1. **Open `PowerShell` as Administrator**
+2. **Temporarily change the script execution policy for current user:**
+   ```bash
+   PS C:\Windows\system32> Set-ExecutionPolicy Bypass CurrentUser
+   ```
+
+3. **Set exclusion for C:\ in Windows Defender settings to prevent it from removing files from ART after install:**
+
+   ![exclusion](https://i.gyazo.com/07e66cdf65173dcfcf5342fd066c18d2.png)
+
+4. **Install Atomic Red Team**
+   ```bash
+   PS C:\Windows\system32> IEX (IWR 'https://raw.githubusercontent.com/redcanaryco/invoke-atomicredteam/master/install-atomicredteam.ps1' -UseBasicParsing);
+   PS C:\Windows\system32> Install-AtomicRedTeam -getAtomics
+   ```
+
+### **5️⃣ Join Domain Controller**
+1. **Navigate to `Advanced system settings` under PC > properties**
 2. **Select Change**
-3. **Set domain to mydfir.local**
+3. **Set domain to `mydfir.local`**
 
    <p align="center"> <img src="https://i.gyazo.com/8998c20703e5398478ec090a399ba7a2.gif"></p>
    <br>
@@ -262,10 +279,10 @@ Follow steps 1-5 for [Splunk Universal Forwarder installation](#3️⃣-install-
    <br>
 
 
-### **5️⃣ Enable Remote Desktop Protocol (RDP)**
+### **6️⃣ Enable Remote Desktop Protocol (RDP)**
 1. **Navigate to PC properties**
-2. **Select Advanced system settings**
-3. **Under the Remote tab, select Allow remote connections to this computer**
+2. **Select `Advanced system settings`**
+3. **Under the Remote tab, select `Allow remote connections to this computer`**
 4. **Add two users created in Active Directory Domain Controller**
 
    <p align="center"> <img src="https://i.gyazo.com/59f7c309dd4705512775429fdafc7572.gif"></p>
@@ -343,12 +360,23 @@ Follow steps 1-5 for [Splunk Universal Forwarder installation](#3️⃣-install-
    ![EventCode](https://i.gyazo.com/23009daac2026eae089c612e9491aee2.png)
 
    - A deeper search revealed that EventCode 4625 are "failed login attempts":
+     ```bash
+     index=endpoint kstrickland EventCode=4625
+     ```
 
      ![failed](https://i.gyazo.com/ba6153af2483aadb4764e8b55fb4de20.png)
 
    - While EventCode 4625 is a "succesful login attempt":
+     ```bash
+     index=endpoint kstrickland EventCode=4624
+     ```
 
      ![success](https://i.gyazo.com/af9c6de6ec630c0f052f06377645264e.png)
 
+   - Proof of event source:
+
+     ![kaliEvent](https://i.gyazo.com/5b79c2b3776a65e0b5e90be6cdcfab4a.png)
      
 
+### **2️⃣ Atomic Red Team Attack**
+1. ****
