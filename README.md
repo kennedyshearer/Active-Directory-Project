@@ -320,3 +320,29 @@ Follow steps 1-5 for [Splunk Universal Forwarder installation](#3️⃣-install-
    echo "China123" >> passwords.txt
    ```
 
+### Attack Simulations & Telemetry Generation via Splunk
+
+### **1️⃣ Kali Linux Attack**
+1. **Execute crowbar using Kevin's account and passwords.txt wordlist:**
+   ```bash
+   crowbar -b rdp -u kstrickland -C passwords.txt -s 192.168.10.100/32
+   ```
+   <p align="center"> <img src="https://i.gyazo.com/73e83c0536e5e1c7ebdf3414885551aa.png"></p>
+   <br>
+
+2. **Search for events related to Kevin's account on the Splunk dashboard:**
+   ```bash
+   index=endpoint kstrickland
+   ```
+
+3. **Investigate findings:**
+   - Found EventCode 4625(20 counts) and 4624:
+     
+   ![EventCode](https://i.gyazo.com/23009daac2026eae089c612e9491aee2.png)
+
+   - A deeper search on each EventCode revealed that 4625 are "failed login attempts and 4624 is a "succesful login attempt":
+
+     ![failed]()
+
+     ![success](https://i.gyazo.com/af9c6de6ec630c0f052f06377645264e.png)
+
