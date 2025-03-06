@@ -380,7 +380,7 @@ Follow steps 1-5 for [Splunk Universal Forwarder installation](#3️⃣-install-
      
 
 ### **2️⃣ Atomic Red Team Test**
-1. **Choose an attack, mapping the atomic test directories to MITRE ATT&CK:**
+1. **Choose an Atomic Test, in correspondence to MITRE ATT&CK Matrix:**
    - First tactic/technique will be Persistence --> Create Account --> Local Account; ID = T1136.001
      ```bash
      PS C:\Windows\system32> Invoke-AtomicTest T1136.001
@@ -395,4 +395,3 @@ Follow steps 1-5 for [Splunk Universal Forwarder installation](#3️⃣-install-
 
    ![NewLocalUser](https://i.gyazo.com/784f99c4d7bb9446fa9775247b487c41.png)
 
-     
