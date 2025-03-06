@@ -1,7 +1,7 @@
 # 🤖 Active Directory Project  
 
 ## 📌 Project Description  
-This project demonstrates setting up an Active Driectory(homelab), integrating Splunk, Kali Linux, and Atomic Red Team to explore how a domain environment works while learning how to ingest events to a SIEM and generate telemetry related to attacks in the real-world to help detect in the future.
+This project demonstrates setting up an Active Directory (homelab), integrating Splunk, Kali Linux, and Atomic Red Team to explore how a domain environment works while learning how to ingest events to a SIEM and generate telemetry related to attacks in the real-world to help detect in the future.
 
 ---
 
@@ -379,5 +379,20 @@ Follow steps 1-5 for [Splunk Universal Forwarder installation](#3️⃣-install-
      ![kaliEvent](https://i.gyazo.com/5b79c2b3776a65e0b5e90be6cdcfab4a.png)
      
 
-### **2️⃣ Atomic Red Team Attack**
-1. ****
+### **2️⃣ Atomic Red Team Test**
+1. **Choose an attack, mapping the atomic test directories to MITRE ATT&CK:**
+   - First tactic/technique will be Persistence --> Create Account --> Local Account; ID = T1136.001
+     ```bash
+     PS C:\Windows\system32> Invoke-AtomicTest T1136.001
+     ```
+     
+     ![LocalAccount](https://i.gyazo.com/fed106237da34f1fdbe82217a4a4425e.png)
+
+2. **Search for logs related to NewLocalUser created:**
+   ```bash
+     index=endpoint NewLocalUser
+   ```
+
+   ![NewLocalUser](https://i.gyazo.com/784f99c4d7bb9446fa9775247b487c41.png)
+
+     
