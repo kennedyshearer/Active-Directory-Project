@@ -340,7 +340,7 @@ Follow steps 1-5 for [Splunk Universal Forwarder installation](#3️⃣-install-
    <br>
    
 
-### Attack Simulations & Telemetry Generation via Splunk
+## ⚔️ Attack Simulations & Telemetry Generation via Splunk
 
 ### **1️⃣ Kali Linux Attack**
 1. **Execute crowbar using Kevin's account and passwords.txt wordlist:**
