@@ -36,7 +36,7 @@ This project demonstrates setting up an Active Directory (homelab), integrating 
 - [VM-3 for Target-PC](#vm---3-for-target---pc)
 - [VM-4 for Attack Machine](#vm---4-for-attack-machine)
 
-3️⃣ [Attack Simulations and Telemetry Generation via Splunk](#⚔️-attack-simulations-and-telemetry-generation-via-splunk)
+3️⃣ [Attack Simulations and Telemetry Generation via Splunk](#attack-simulations-and-telemetry-generation-via-splunk)
 
 ---
 
