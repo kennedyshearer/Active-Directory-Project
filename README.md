@@ -26,12 +26,26 @@ This project demonstrates setting up an Active Directory (homelab), integrating 
 
 ---
 
+## 📋 Table of Contents
+
+1️⃣ [Topology](#📈-topology)
+
+2️⃣ [Installation and Setup](#🛠️-installation-and-setup)
+- [VM-1 for Splunk Server](#vm---1-for-splunk-server)
+- [VM-2 for Active Directory](#vm---2-for-active-directory)
+- [VM-3 for Target-PC](#vm---3-for-target---pc)
+- [VM-4 for Attack Machine](#vm---4-for-attack-machine)
+
+3️⃣ [Attack Simulations and Telemetry Generation via Splunk](#⚔️-attack-simulations-and-telemetry-generation-via-splunk)
+
+---
+
 ## 📈 Topology  
 <p align="center"> <img src="https://github.com/kennedyshearer/Active-Directory-Project/blob/main/ADP-diagram.drawio.png"></p>
 
 ---
 
-## 🛠️ Installation & Setup  
+## 🛠️ Installation and Setup  
 
 ### VM-1 for Splunk Server 
 
@@ -340,7 +354,7 @@ Follow steps 1-5 for [Splunk Universal Forwarder installation](#3️⃣-install-
    <br>
    
 
-## ⚔️ Attack Simulations & Telemetry Generation via Splunk
+## ⚔️ Attack Simulations and Telemetry Generation via Splunk
 
 ### **1️⃣ Kali Linux Attack**
 1. **Execute crowbar using Kevin's account and passwords.txt wordlist:**
