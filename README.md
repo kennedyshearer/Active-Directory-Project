@@ -30,7 +30,7 @@ This project demonstrates setting up an Active Directory (homelab), integrating 
 
 1️⃣ [Topology](#📈-topology)
 
-2️⃣ [Installation and Setup](#🛠️-installation-and-setup)
+2️⃣ [Installation and Setup](#-🛠️-installation-and-setup)
 - [VM-1 for Splunk Server](#vm---1-for-splunk-server)
 - [VM-2 for Active Directory](#vm---2-for-active-directory)
 - [VM-3 for Target-PC](#vm---3-for-target---pc)
