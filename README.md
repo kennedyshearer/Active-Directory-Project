@@ -28,7 +28,7 @@ This project demonstrates setting up an Active Directory (homelab), integrating 
 
 ## 📋 Table of Contents
 
-1️⃣ [Topology](#📈-topology)
+1️⃣ [Topology](#topology)
 
 2️⃣ [Installation and Setup](#-🛠️-installation-and-setup)
 - [VM-1 for Splunk Server](#vm---1-for-splunk-server)
@@ -40,7 +40,7 @@ This project demonstrates setting up an Active Directory (homelab), integrating 
 
 ---
 
-## 📈 Topology  
+## Topology  
 <p align="center"> <img src="https://github.com/kennedyshearer/Active-Directory-Project/blob/main/ADP-diagram.drawio.png"></p>
 
 ---
